@@ -7,14 +7,14 @@ SCRIPTPATH=`dirname $SCRIPT`
 mkdir -p ${SCRIPTPATH}/docker/volumes/minio/bucket/custom_files \
 		 ${SCRIPTPATH}/docker/volumes/robo/checkpoint
 
-# create symlink to current user's home .aws directory 
+# create symlink to current user's home .aws directory
 # NOTE: AWS cli must be installed for this to work
 # https://docs.aws.amazon.com/cli/latest/userguide/install-linux-al2017.html
 ln -s ${SCRIPTPATH}/$(eval echo "~${USER}")/.aws  ${SCRIPTPATH}/docker/volumes/
 
 # grab local training deepracer repo from crr0004 and log analysis repo from breadcentric
 cd  ${SCRIPTPATH}
-git clone --recurse-submodules https://github.com/ARCC-RACE/deepracer.git
+git clone --recurse-submodules https://github.com/Burke9077/deepracer.git
 
 git clone https://github.com/ARCC-RACE/aws-deepracer-workshops.git && cd aws-deepracer-workshops && git checkout enhance-log-analysis && cd ..
 
